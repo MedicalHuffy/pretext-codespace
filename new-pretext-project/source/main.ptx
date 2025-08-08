@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- we first include a file which contains the docinfo element: -->
+  <xi:include href="./docinfo.ptx" />
+
+  <book xml:id="my-great-book">
+    <title>My Great Book</title>
+    <subtitle>An example to get you started</subtitle>
+
+    <!-- Include frontmatter -->
+    <xi:include href="./frontmatter.ptx" />
+
+    <!-- Include chapters -->
+     <chapter xml:id="ch-Test">
+      <title>Test</title>
+
+      <section>
+        <p>Integrating this term by term, we have</p>
+
+<me>
+    \int e^{-x^2/2} \, dx =
+    \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1) 2^n n!} + \text{constant}
+</me>
+
+<me>
+    \approx x - \frac{x^3}{6} + C.
+</me>
+
+<p>For the standard normal cdf <m>\Phi</m> we want <m>\Phi(0) = \frac{1}{2}</m>, which means</p>
+
+<me>
+    \Phi(x) \approx \frac{1}{\sqrt{2\pi}} \left( x - \frac{x^3}{6} \right) + \frac{1}{2}
+</me>
+
+<p>for <m>x \approx 0</m>. To see how good this approximation is, let us compute</p>
+
+<me>
+    68\% \approx \Phi(1) - \Phi(-1) \approx \frac{1}{\sqrt{2\pi}} \left( 2 - \frac{2}{6} \right)
+    = \frac{1}{\sqrt{2\pi}} \cdot \frac{5}{3} = 0.6649
+</me>
+
+<p>which is not bad.</p>
+
+<p>Let us also try using Simpson’s Rule: with <m>f = f_Z</m>, <m>\Delta x = 1</m>, and <m>(x_0, x_1, x_2) = (-1, 0, 1)</m>, we have</p>
+
+<me>
+    \int_{-1}^1 f_Z(z) \, dz \approx \frac{\Delta x}{3} \left( f(x_0) + 4f(x_1) + f(x_2) \right)
+</me>
+
+<me>
+    = \frac{1}{3} \cdot \frac{1}{\sqrt{2\pi}} \left( e^{-(-1)^2/2} + 4 e^{-0^2/2} + e^{-(1)^2/2} \right)
+</me>
+
+<me>
+    = \frac{1}{3\sqrt{2\pi}} \left( 2e^{-1/2} + 4 \right)
+</me>
+
+<me>
+    = \frac{\sqrt{2}}{3\sqrt{\pi e}} \left( 1 + 2\sqrt{e} \right) \approx 0.6932\ldots
+</me>
+
+<p>and with <m>(x_0, x_1, x_2, x_3, x_4) = (-2, -1, 0, 1, 2)</m>, we have</p>
+
+<me>
+    \int_{-2}^2 f_Z(z) \, dz \approx \frac{\Delta x}{3} \left( f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + f(x_4) \right)
+</me>
+
+<me>
+    = \frac{1}{3\sqrt{2\pi}} \left( e^{-4/2} + 4 e^{-1/2} + 2 e^{-0/2} + 4 e^{-1/2} + e^{-4/2} \right)
+</me>
+
+<me>
+    = \frac{1}{3\sqrt{2\pi}} \left( 2e^{-2} + 8e^{-1/2} + 2 \right) \approx 0.9472\ldots
+</me>
+
+
+    <title>Normal probability plots</title>
+    <p>To make a normal probability plot, proceed as follows.</p>
+    <ul>
+        <li><p>Using the mean and (sample) standard deviation, standardize the data set.</p></li>
+        <li><p>Construct the empirical cdf, which is just the cdf of the uniform distribution on the data set we are working with.</p></li>
+        <li><p>In Google Sheets, highlight two columns with the values of the empirical and normal cdfs (using <c>normdist</c> function with cdf set to 1 or TRUE) at the values in our data set.</p></li>
+        <li><p>Display a scatter plot of these two columns. That is our normal probability plot.</p></li>
+    </ul>
+</section>
+
+</chapter>
+    <xi:include href="./ch-chapter-title.ptx" />
+
+    <!-- Include backmatter -->
+    <xi:include href="./backmatter.ptx" />
+
+  </book>
+</pretext>
