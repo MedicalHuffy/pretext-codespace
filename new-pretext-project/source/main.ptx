@@ -15,6 +15,42 @@
      <chapter xml:id="ch-Test">
       <title>Test</title>
 
+
+<section xml:id="sec-TestingPrefigure">
+    <title>Testing Prefigure</title>
+<image width="60%">
+  <prefigure xmlns="https://prefigure.org" label="prefigure-rectangle">
+    <diagram dimensions="(300,300)" margins="5">
+      <coordinates bbox="(0,0,10,10)">
+        <grid-axes/>
+        <rectangle center="(5,5)" dimensions="(6,6)"/>
+        <label anchor="(0.5,0.5)" alignment="ne" clear-background="yes">
+          The derivative is <m>\frac{dy}{dx}</m>.
+        </label>
+      </coordinates>
+    </diagram>
+  </prefigure>
+</image>
+
+<image width="60%">
+  <prefigure xmlns="https://prefigure.org" label="tangent">
+    <diagram dimensions="(300,300)" margins="5">
+  <definition>f(x)=2.5-x^2/2</definition>
+  <definition>a = 1</definition>
+  <coordinates bbox="(-4,-4,4,4)">
+    <grid-axes xlabel="x" ylabel="y"/>
+    <graph function="f"/>
+    <tangent-line function="f" point="a"/>
+    <point p="(a,f(a))" alignment="ne">
+      <m>(a,f(a))</m>
+    </point>
+  </coordinates>
+</diagram>
+  </prefigure>
+</image>
+    </section>
+
+
       <section>
         <p>Integrating this term by term, we have</p>
 
